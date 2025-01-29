@@ -1,6 +1,6 @@
 ﻿/*
-* Name: [YOUR NAME HERE]
-* South Hills Username: [YOUR SOUTH HILLS USERNAME HERE]
+* Name: Logan Brooks
+* South Hills Username: lbrooks81
 */
 
 using System;
@@ -11,11 +11,23 @@ namespace FactoryLab;
 public abstract class InventoryItem
 {
     //TODO: The other common properties go here!
-    public float Price { get; }//Can only be assigned to in a constructor in this class
+    public String? Title { get; }
+    public String? Brand { get; }
+    public int Quantity { get; }
+    public ProductType ProductType { get; }
 
+    public float Price { get; } //Can only be assigned to in a constructor in this class
+
+    public InventoryItem(String brand, String title, int quantityOnHand, float price, ProductType productType)
+    {
+        Brand = brand;
+        Title = title;
+        Quantity = quantityOnHand;
+        Price = price;
+        ProductType = productType;
+    }
     public virtual void DisplayItem()
     {
-        //TODO: Implement the DisplayItem method
-        throw new NotImplementedException();
+        Console.WriteLine($"Title: {Title}\n Brand: {Brand}\n QOH: {Quantity}\n Product Type: {ProductType}\n Price: {Price.ToString("C2")}");
     }
 }
